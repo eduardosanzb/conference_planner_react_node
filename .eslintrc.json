@@ -11,7 +11,9 @@
         },
         "sourceType": "module"
     },
+    "extends": "airbnb",
     "rules": {
+        "func-names": ["error", "never"],
         "no-const-assign": "warn",
         "no-this-before-super": "warn",
         "no-undef": "warn",
