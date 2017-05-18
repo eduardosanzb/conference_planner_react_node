@@ -1,0 +1,54 @@
+{
+  "name": "conferences-manager-mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist",
+  "scripts": {
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developit/express-es6-rest-api.git"
+  },
+  "author": "eduardosanzb",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "^4.15.3",
+    "jade": "~1.11.0",
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.10",
+    "monk": "^4.0.0",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "morgan": "^1.8.0",
+    "resource-router-middleware": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
+  },
+  "keywords": [
+    "thesis",
+    "backend"
+  ]
+}
