@@ -1,0 +1,17 @@
+.ms-Breadcrumb-item {
+    overflow: visible !important;
+    max-width: 400px !important;
+}
+
+.logo {
+  float: left !important;
+  margin: 10px !important;
+  background-color: black;
+  width: 30px;
+  height: 30px;
+  img {
+    margin-bottom: 40px;
+    max-height: 30px;
+    margin-left: 10px;
+  }
+}
