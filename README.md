@@ -11,4 +11,3 @@ Conferences planner for institutions
 * `yarn`
 * `npm run dev`
 
-

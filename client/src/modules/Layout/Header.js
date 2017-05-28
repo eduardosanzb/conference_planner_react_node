@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu, Icon } from 'antd';
+import Layout from 'antd/lib/layout';
+import Menu from 'antd/lib/menu';
+import Icon from 'antd/lib/icon';
 const { Header } = Layout;
 
 const TABS = [

@@ -1,7 +1,6 @@
 import React from 'react';
-import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
-import { Label } from 'office-ui-fabric-react/lib/Label';
-import { Layout, Icon } from 'antd';
+import Layout from 'antd/lib/layout';
+import Icon from 'antd/lib/icon';
 const { Footer } = Layout;
 
 class FooterComponent extends React.Component {

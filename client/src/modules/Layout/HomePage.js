@@ -1,8 +1,6 @@
 import React from 'react';
-import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
-import { Label } from 'office-ui-fabric-react/lib/Label';
 import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb';
-import { Layout } from 'antd';
+import Layout from 'antd/lib/layout';
 const { Content } = Layout;
 
 class Home extends React.Component {

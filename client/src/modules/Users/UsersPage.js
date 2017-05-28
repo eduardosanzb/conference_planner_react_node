@@ -1,12 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../../actions';
-import { Link } from 'react-router-dom';
-import { Layout } from 'antd';
+import Layout from 'antd/lib/layout';
 const { Content } = Layout;
 import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb';
-
-
+// Redux
+import { fetchUsers } from '../../actions';
 class UsersList extends React.Component {
   componentWillMount() {
     this.props.fetchUsers();
