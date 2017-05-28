@@ -2,6 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions';
 
+import { Layout } from 'antd';
+const { Content } = Layout;
+import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb';
+
+
 class UsersList extends React.Component {
   componentWillMount() {
     this.props.fetchUsers();
@@ -12,10 +17,18 @@ class UsersList extends React.Component {
       return <div>Loading ...</div>
     }
     return (
-      <div>
+      <Content style={{ padding: '0 50px' }}>
+      <Breadcrumb
+        items={[
+          { text: 'Home', 'key': 'home', href: '/' },
+          { text: 'Users', 'key': 'users' }
+        ]}/>
+        
+      <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
         <h1>Users</h1>
         {this.props.users.map(u => <div key={u.id}>{u.username}</div>)}
       </div>
+    </Content>
     );
   }
 }
