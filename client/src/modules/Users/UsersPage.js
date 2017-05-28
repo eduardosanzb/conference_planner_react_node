@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions';
-
+import { fetchUsers } from '../../actions';
+import { Link } from 'react-router-dom';
 import { Layout } from 'antd';
 const { Content } = Layout;
 import { Breadcrumb } from 'office-ui-fabric-react/lib/Breadcrumb';
@@ -23,11 +23,8 @@ class UsersList extends React.Component {
           { text: 'Home', 'key': 'home', href: '/' },
           { text: 'Users', 'key': 'users' }
         ]}/>
-        
-      <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
         <h1>Users</h1>
-        {this.props.users.map(u => <div key={u.id}>{u.username}</div>)}
-      </div>
+        {this.props.users.map(u => <div key={u.id}>*{u.username}</div>)}
     </Content>
     );
   }
