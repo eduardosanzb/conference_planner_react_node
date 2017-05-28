@@ -1,4 +1,4 @@
-c# conference_planner_thesis
+# conference_planner_thesis
 Conferences planner for institutions
 
 # Run the project
