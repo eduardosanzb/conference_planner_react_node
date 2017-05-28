@@ -1,6 +1,5 @@
 import http from 'http';
 import express from 'express';
-// import mongodb from 'mongodb';
 import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
@@ -10,9 +9,6 @@ import api from './api';
 import config from './config.json';
 
 const app = express();
-app.server = http.createServer(app);
-
-// const mongo = mongodb.MongoClient;
 
 // logger
 app.use(morgan('dev'));
@@ -26,17 +22,28 @@ app.use(bodyParser.json({
   limit: config.bodyLimit
 }));
 
-// connect to db
-initializeDb((db) => {
+initializeDb(async (mongoose) => {
+  const test = mongoose.Schema({
+    name: {
+      type: String,
+      required: true
+    }
+  });
+  const Model = mongoose.model('Test', test);
+  const here = new Model({ name: 'test' });
+  await here.save();
+  console.log('saved', here);
+
 	// internal middleware
-  app.use(middleware({ config, db }));
+  app.use(middleware({ config, mongoose }));
 
 	// api router
-  app.use('/api', api({ config, db }));
+  app.use('/api', api({ config, mongoose }));
 
-  app.server.listen(process.env.PORT || config.port);
+  const server = http.createServer(app);
+  server.listen(process.env.PORT || config.port);
 
-  console.log(`Started on port ${app.server.address().port}`);
+  console.log(`Started on port ${server.address().port}`);
 });
 
 export default app;

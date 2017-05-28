@@ -1,6 +1,7 @@
 {
 	"port": 8080,
-	"bodyLimit": "100kb",
+	"bodyLimit": "16mb",
 	"corsHeaders": ["Link"],
-	"dbUrl": "mongodb://localhost/thesis"
+	"dbUrl": "mongodb://localhost/thesis",
+	"MOONGOSE_DEBUG": true
 }
