@@ -9,7 +9,7 @@ export default ({ config, db }) => {
 
 	// perhaps expose some API metadata at the root
   api.get('/', (req, res) => {
-    res.json({ users: [{ username: 'lalo' }] });
+    res.json({ users: [{ id: 1, username: 'lalo' }] });
   });
 
   return api;

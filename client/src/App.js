@@ -1,34 +1,21 @@
-import React, { Component } from 'react';
-import { Button } from 'office-ui-fabric-react/lib/Button';
-import './App.css'
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      users: null
-    };
-  }
+// Components
+import Header from './modules/Header';
+import Main from './modules/Main';
 
-  async componentDidMount(){
-    const response = await fetch('/api');
-    const { users } = await response.json();
-    this.setState({ users })
-  }
+require('../node_modules/office-ui-fabric-react/dist/css/fabric.min.css');
+require('./antd.min.css');
+require('./index.css');
 
-  render() {
-    if (this.state.users === null) {
-      return <div>Loading...</div>
-    } else {
-      return (
-        <div className="App">
-          <h1>Users</h1>
-          {this.state.users.map(u => <div key={u.id}>{u.username}</div>)}
-          <Button>Button</Button>
-        </div>
-      );
-    }
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <div>
+      <Header />
+      <Main />
+    </div>
+  </BrowserRouter>
+);
 
 export default App;

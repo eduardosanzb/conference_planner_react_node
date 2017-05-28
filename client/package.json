@@ -1,13 +1,25 @@
 {
-  "name": "client",
+  "name": "CAEM_client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^2.10.2",
+    "axios": "^0.16.1",
+    "es6-promise": "^4.1.0",
+    "lodash": "^4.17.4",
     "office-ui-fabric-react": "^2.30.1",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-player": "^0.18.0",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.6.0",
+    "redux-promise": "^0.5.3",
+    "redux-saga": "^0.15.3"
   },
   "devDependencies": {
+    "eslint": "^3.19.0",
     "react-scripts": "0.9.5"
   },
   "scripts": {
