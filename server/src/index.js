@@ -8,6 +8,8 @@ import middleware from './middleware';
 import api from './api';
 import config from './config.json';
 
+import User from './models/User';
+
 const app = express();
 
 // logger
@@ -23,16 +25,10 @@ app.use(bodyParser.json({
 }));
 
 initializeDb(async (mongoose) => {
-  const test = mongoose.Schema({
-    name: {
-      type: String,
-      required: true
-    }
+  const joe = new User({
+    firstName: 'JOe'
   });
-  const Model = mongoose.model('Test', test);
-  const here = new Model({ name: 'test' });
-  await here.save();
-  console.log('saved', here);
+  joe.save();
 
 	// internal middleware
   app.use(middleware({ config, mongoose }));

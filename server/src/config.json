@@ -1,7 +1,13 @@
 {
-	"port": 8080,
+	"port": 3001,
 	"bodyLimit": "16mb",
 	"corsHeaders": ["Link"],
 	"dbUrl": "mongodb://localhost/thesis",
-	"MOONGOSE_DEBUG": true
+	"MOONGOSE_DEBUG": true,
+	"globalPermissions": {
+		"0": "ADMIN",
+		"1": "ORGANIZER",
+		"2": "SPEAKER",
+		"3": "ASSISTANT"
+	}
 }
