@@ -28,12 +28,13 @@ const UserSchema = new Schema({
   birthDate: {
     type: Date
   },
+  // Arrays are breaking
   permissions: [PermissionSchema],
   speakerInfo: [SpeakerInfoSchema]
 });
 
 UserSchema.virtual('maxPermission').get(function () {
-  return this.permissions.map(getLevels).reduce(getHighest);
+  return this.permissions.map(getLevels).reduce(getHighest, 0);
 });
 
 module.exports = mongoose.model('user', UserSchema);

@@ -34,11 +34,14 @@ describe('User model', async () => {
   });
 
   it('should throw error for the invalid permissionSchema', async () => {
-    const joe = new User({ firstName: 'lalo', email: 'test@test.com' });
-    joe.permissions.push({ name: 'ADMIN' });
+    const joe = new User({
+      firstName: 'lalo',
+      email: 'test@test.com',
+      test: [{ name: 'admin' }]
+    });
     try {
       await joe.save();
-      expect(joe.permissions).toHaveLength(1);
+      expect(joe.test).toHaveLength(1);
     } catch (error) {
       console.log(error);
     }
