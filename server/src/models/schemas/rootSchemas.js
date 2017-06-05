@@ -16,7 +16,7 @@ const PermissionSchema = new Schema({
 });
 PermissionSchema.virtual('level').get(function () {
   return _.entries(globalPermissions)
-		.reduce(getMatchLevel.bind(null, this.name));
+		.reduce(getMatchLevel.bind(null, this.name), Number.MAX_SAFE_INTEGER);
 });
 
 const SpeakerInfoSchema = new Schema({

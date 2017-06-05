@@ -5,6 +5,11 @@ import moment from 'moment';
 import MODELS from './index';
 import { createReference } from './lib/utilities';
 import { BookedHoursSchema } from './schemas/rootSchemas';
+// Helper functions
+const sameDay = (k, x) => !(k.isAfter(x, 'day') || k.isBefore(x, 'day'));
+const toMoment = d => moment(d.date);
+const overLaps = (k, { min, max }) => k.isBetween(min, max, 'minute');
+const getMinMaxTime = h => ({ min: moment(h.start), max: moment(h.start).add(h.duration, 'm') });
 
 const RoomSchema = new Schema({
   name: {
@@ -79,23 +84,16 @@ const RoomSchema = new Schema({
   }
 });
 
-const sameDay = (k, x) => !(k.isAfter(x, 'day') || k.isBefore(x, 'day'));
-const toMoment = d => moment(d.date);
-RoomSchema.statics.isAvailable = function (date, cb) {
+RoomSchema.methods.isAvailable = function (date, cb) {
+  console.log(this.schedule);
   const newDate = moment(date).set('hours', 0);
-  const existedDate = this.schedule.map(toMoment)
-											.find(sameDay.bind(null, newDate));
+  const existedDate = this.schedule.map(toMoment).find(sameDay.bind(null, newDate));
   if (!existedDate) {
     cb(true);
+  } else {
+    const results = existedDate.bookedHours.map(getMinMaxTime).map(overLaps.bind(null, newDate));
+    cb(results.every(e => e === false));
   }
-	// todo here continue
-  const results = existedDate.bookedHours.find((h) => {
-    const min = moment(h.start);
-    const max = moment(min.add(h.duration, 'm'));
-    return !(DATE > min || DATE < max);
-  });
-  console.log(results);
-  return results.every(e => e === true);
 };
 
 

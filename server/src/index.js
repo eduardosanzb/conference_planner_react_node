@@ -45,6 +45,9 @@ initializeDb(async (mongoose) => {
   });
 
   roomA.save();
+  const testDate = new Date();
+  console.log(testDate);
+  console.log(roomA.isAvailable(testDate));
 
 	// internal middleware
   app.use(middleware({ config, mongoose }));
