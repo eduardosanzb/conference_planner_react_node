@@ -8,7 +8,7 @@ import middleware from './middleware';
 import api from './api';
 import config from './config.json';
 
-import User from './models/User';
+import Room from './models/Room';
 
 const app = express();
 
@@ -25,10 +25,26 @@ app.use(bodyParser.json({
 }));
 
 initializeDb(async (mongoose) => {
-  const joe = new User({
-    firstName: 'JOe'
+  const roomA = new Room({
+    name: 'a',
+    openHour: new Date().setHours(7),
+    closedHour: new Date().setHours(19),
+    schedule: [{
+      date: new Date(),
+      bookedHours: [
+        {
+          duration: 60,
+          start: new Date().setHours(9, 0),
+        },
+        {
+          duration: 30,
+          start: new Date().setHours(11, 30),
+        }
+      ]
+    }]
   });
-  joe.save();
+
+  roomA.save();
 
 	// internal middleware
   app.use(middleware({ config, mongoose }));
