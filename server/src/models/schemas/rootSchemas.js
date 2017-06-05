@@ -4,9 +4,10 @@ import _ from 'lodash';
 import { Schema } from 'mongoose';
 import { globalPermissions } from '../../config.json';
 import { createReference, getMatchLevel } from '../lib/utilities';
+import MODELS from '../index';
 
 
-export const PermissionSchema = new Schema({
+const PermissionSchema = new Schema({
   name: {
     type: String,
     enum: _.values(globalPermissions),
@@ -18,7 +19,28 @@ PermissionSchema.virtual('level').get(function () {
 		.reduce(getMatchLevel.bind(null, this.name));
 });
 
-export const SpeakerInfoSchema = new Schema({
-  contributions: [createReference('Contributions')],
-  conferences: [createReference('Conferences')]
+const SpeakerInfoSchema = new Schema({
+  contributions: [createReference(MODELS.contributions)],
+  conferences: [createReference(MODELS.conferences)]
 });
+
+const BookedHoursSchema = new Schema({
+  duration: {
+    type: Number,
+    required: true,
+    min: 30,
+    default: 30
+  },
+  start: {
+    type: Date,
+    required: true
+  },
+  event: createReference(MODELS.event),
+  conference: createReference(MODELS.conference)
+});
+
+module.exports = {
+  PermissionSchema,
+  SpeakerInfoSchema,
+  BookedHoursSchema
+};
