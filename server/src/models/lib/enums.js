@@ -13,8 +13,16 @@ const globalPermissions = {
 
 const typeOfRoom = ['LABORATORY', 'CLASSROOM', 'STAGE']; // TODO: PUT MORE
 
+const contributionStatus = [
+  'TO REVIEW',
+  'IN REVISION',
+  'REJECTED',
+  'ACCEPTED'
+];
+
 module.exports = {
   sponsorLevels,
   globalPermissions,
-  typeOfRoom
+  typeOfRoom,
+  contributionStatus
 };
