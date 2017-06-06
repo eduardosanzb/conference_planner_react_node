@@ -98,12 +98,13 @@ RoomSchema.methods.isAvailable = function (date) {
     .find(sameDay.bind(null, newDate));
 
   if (!existedDate) {
-    return true;
+    return { status: true };
   }
   const results = existedDate.bookedHours
     .map(getMinMaxTime)
     .map(getRoomResult.bind(null, newDate))
     .filter(byOverLap);
+
   return results.length === 0 ? { status: true } : { status: false, payload: results.map(getRoomStatus) };
 };
 
