@@ -6,8 +6,8 @@ import MODELS from './index';
 import { createReference } from './lib/utilities';
 import { BookedHoursSchema } from './schemas/rootSchemas';
 // Helper functions
-const sameDay = (k, x) => !(k.isAfter(x, 'day') || k.isBefore(x, 'day'));
-const toMoment = d => moment(d.date);
+const sameDay = (k, x) => !(k.isAfter(x.moment, 'day') || k.isBefore(x.moment, 'day'));
+const toMoment = d => (Object.assign(d, { moment: moment(d.date) }));
 const overLaps = (k, { min, max }) => k.isBetween(min, max, 'minute');
 const getMinMaxTime = h => ({ min: moment(h.start), max: moment(h.start).add(h.duration, 'm') });
 
@@ -84,16 +84,14 @@ const RoomSchema = new Schema({
   }
 });
 
-RoomSchema.methods.isAvailable = function (date, cb) {
-  console.log(this.schedule);
-  const newDate = moment(date).set('hours', 0);
+RoomSchema.methods.isAvailable = function (date) {
+  const newDate = moment(date);
   const existedDate = this.schedule.map(toMoment).find(sameDay.bind(null, newDate));
   if (!existedDate) {
-    cb(true);
-  } else {
-    const results = existedDate.bookedHours.map(getMinMaxTime).map(overLaps.bind(null, newDate));
-    cb(results.every(e => e === false));
+    return true;
   }
+  const results = existedDate.bookedHours.map(getMinMaxTime).map(overLaps.bind(null, newDate));
+  return results.every(e => e === false);
 };
 
 

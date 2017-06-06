@@ -25,29 +25,6 @@ app.use(bodyParser.json({
 }));
 
 initializeDb(async (mongoose) => {
-  const roomA = new Room({
-    name: 'a',
-    openHour: new Date().setHours(7),
-    closedHour: new Date().setHours(19),
-    schedule: [{
-      date: new Date(),
-      bookedHours: [
-        {
-          duration: 60,
-          start: new Date().setHours(9, 0),
-        },
-        {
-          duration: 30,
-          start: new Date().setHours(11, 30),
-        }
-      ]
-    }]
-  });
-
-  roomA.save();
-  const testDate = new Date();
-  console.log(testDate);
-  console.log(roomA.isAvailable(testDate));
 
 	// internal middleware
   app.use(middleware({ config, mongoose }));
