@@ -1,10 +1,12 @@
 module.exports = {
   user: 'User',
+  payment: 'Payment',
+  sponsor: 'Sponsor',
   room: 'Room',
   building: 'Building',
-  conference: 'Conference',
   event: 'Event',
   permission: 'Permission',
-  contributions: 'Contributions',
-  conferences: 'Conferences'
+  contribution: 'Contribution',
+  conference: 'Conference',
+  new: 'New' // as blogPost
 };

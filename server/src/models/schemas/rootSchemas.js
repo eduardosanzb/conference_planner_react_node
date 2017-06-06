@@ -24,6 +24,23 @@ const SpeakerInfoSchema = new Schema({
   conferences: [createReference(MODELS.conferences)]
 });
 
+const AssistantInfoSchema = new Schema({
+  events: [createReference(MODELS.event)],
+  payments: [createReference(MODELS.payment)],
+  favoritesConferences: [{
+    event: createReference(MODELS.event),
+    conferences: [createReference(MODELS.conferences)]
+  }],
+  favoritesSpeakers: [{
+    event: createReference(MODELS.event),
+    speakers: [createReference(MODELS.user)]
+  }]
+});
+
+const StaffInfoSchema = new Schema({
+  events: [createReference(MODELS.event)]
+});
+
 const BookedHoursSchema = new Schema({
   duration: {
     type: Number,
@@ -47,5 +64,7 @@ const BookedHoursSchema = new Schema({
 module.exports = {
   PermissionSchema,
   SpeakerInfoSchema,
+  AssistantInfoSchema,
+  StaffInfoSchema,
   BookedHoursSchema
 };

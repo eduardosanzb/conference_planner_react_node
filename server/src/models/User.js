@@ -1,8 +1,9 @@
 /* eslint prefer-arrow-callback: 0 */
 /* eslint func-names: ["error", "never"] */
 import mongoose, { Schema } from 'mongoose';
-import { PermissionSchema, SpeakerInfoSchema } from './schemas/rootSchemas';
-import { getLevels, getHighest } from './lib/utilities';
+import { PermissionSchema, SpeakerInfoSchema, AssistantInfoSchema, StaffInfoSchema } from './schemas/rootSchemas';
+import { getLevels, getHighest, createReference } from './lib/utilities';
+import MODELS from './index';
 
 const UserSchema = new Schema({
   firstName: {
@@ -28,13 +29,19 @@ const UserSchema = new Schema({
   birthDate: {
     type: Date
   },
-  // Arrays are breaking
+  country: String,
+  company: String,
+  institution: String,
+  friends: [createReference(MODELS.user)],
+  events: [createReference(MODELS.event)],
   permissions: [PermissionSchema],
-  speakerInfo: [SpeakerInfoSchema]
+  speakerInfo: SpeakerInfoSchema,
+  assistantInfo: AssistantInfoSchema,
+  staffInfo: StaffInfoSchema
 });
 
 UserSchema.virtual('maxPermission').get(function () {
   return this.permissions.map(getLevels).reduce(getHighest, 0);
 });
 
-module.exports = mongoose.model('user', UserSchema);
+module.exports = mongoose.model(MODELS.user, UserSchema);

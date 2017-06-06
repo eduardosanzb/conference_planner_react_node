@@ -3,18 +3,16 @@
 import mongoose, { Schema } from 'mongoose';
 import moment from 'moment';
 import MODELS from './index';
-import { createReference } from './lib/utilities';
 import { BookedHoursSchema } from './schemas/rootSchemas';
 // Helper functions
-const sameDay = (k, x) => !(k.isAfter(x.moment, 'day') || k.isBefore(x.moment, 'day'));
-const toMoment = d => Object.assign(d, { moment: moment(d.date) });
-const getRoomResult = (k, x) => Object.assign(x, { result: k.isBetween(x.min, x.max, 'minute') });
-const getMinMaxTime = h => Object.assign(
-  h.toObject(),
-  { min: moment(h.start), max: moment(h.start).add(h.duration, 'm') }
-);
-const byOverLap = x => x.result === true;
-const getRoomStatus = x => x.status;
+import {
+  createReference,
+  sameDay,
+  toMoment,
+  getRoomResult,
+  getMinMaxTime,
+  byOverLap,
+  getRoomStatus } from './lib/utilities';
 
 const RoomSchema = new Schema({
   name: {
@@ -91,6 +89,10 @@ const RoomSchema = new Schema({
   }
 });
 
+/**
+* @function isAvailable
+* @param  {Date} date - find out if available
+*/
 RoomSchema.methods.isAvailable = function (date) {
   const newDate = moment(date);
   const existedDate = this.schedule
@@ -108,4 +110,4 @@ RoomSchema.methods.isAvailable = function (date) {
   return results.length === 0 ? { status: true } : { status: false, payload: results.map(getRoomStatus) };
 };
 
-module.exports = mongoose.model('room', RoomSchema);
+module.exports = mongoose.model(MODELS.room, RoomSchema);
