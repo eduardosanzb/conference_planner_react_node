@@ -35,6 +35,11 @@ const BookedHoursSchema = new Schema({
     type: Date,
     required: true
   },
+  status: {
+    type: String,
+    enum: ['PENDING', 'BOOKED'],
+    required: true
+  },
   event: createReference(MODELS.event),
   conference: createReference(MODELS.conference)
 });
