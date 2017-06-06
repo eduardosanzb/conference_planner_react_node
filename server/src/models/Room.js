@@ -4,6 +4,7 @@ import mongoose, { Schema } from 'mongoose';
 import moment from 'moment';
 import MODELS from './index';
 import { BookedHoursSchema } from './schemas/rootSchemas';
+import { typeOfRoom } from './lib/enums';
 // Helper functions
 import {
   createReference,
@@ -43,7 +44,7 @@ const RoomSchema = new Schema({
   },
   typeOfRoom: {
     type: String,
-    enum: ['LABORATORY', 'CLASSROOM', 'STAGE'] // TODO: PUT MORE
+    enum: typeOfRoom
   },
   desks: {
     type: Number,

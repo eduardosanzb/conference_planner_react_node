@@ -3,11 +3,5 @@
 	"bodyLimit": "16mb",
 	"corsHeaders": ["Link"],
 	"dbUrl": "mongodb://localhost/thesis",
-	"MOONGOSE_DEBUG": true,
-	"globalPermissions": {
-		"0": "ADMIN",
-		"1": "ORGANIZER",
-		"2": "SPEAKER",
-		"3": "ASSISTANT"
-	}
+	"MOONGOSE_DEBUG": true
 }
