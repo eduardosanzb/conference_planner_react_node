@@ -1,7 +1,12 @@
 /* eslint prefer-arrow-callback: 0 */
 /* eslint func-names: ["error", "never"] */
 import mongoose, { Schema } from 'mongoose';
-import { PermissionSchema, SpeakerInfoSchema, AssistantInfoSchema, StaffInfoSchema } from './schemas/rootSchemas';
+import {
+  PermissionSchema,
+  SpeakerInfoSchema,
+  AssistantInfoSchema,
+  StaffInfoSchema
+} from './schemas/rootSchemas';
 import { getLevels, getHighest, createReference } from './lib/utilities';
 import MODELS from './index';
 
