@@ -1,6 +1,7 @@
 /* eslint func-names: ["error", "never"] */
 import mongoose, { Schema } from 'mongoose';
 import MODELS from './index';
+import Conference from './Conference';
 import { ContributionHistorySchema } from './schemas/rootSchemas';
 import { contributionStatus } from './lib/enums';
 // Helper functions
@@ -15,16 +16,25 @@ const ContributionSchema = new Schema({
     enum: contributionStatus,
     default: 'TO REVIEW'
   },
-  conference: createReference[MODELS.conference]
+  event: createReference(MODELS.event),
+  conference: createReference(MODELS.conference)
 });
 
 ContributionSchema.virtual('last').get(function () {
   return this.history.slice(-1).pop();
 });
 
-ContributionSchema.methods.accept(() => {
+ContributionSchema.methods.accept = async function () {
   this.status = 'ACCEPTED';
-	// TODO: create a conference
-});
+  const newConference = await Conference.create({
+    name: this.title,
+    description: 'Lorem ipsum',
+    paper: this.last,
+    event: this.event,
+    speakers: this.authors
+  });
+  newConference.save();
+  this.conference = newConference;
+};
 
 module.exports = mongoose.model(MODELS.contribution, ContributionSchema);

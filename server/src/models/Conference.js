@@ -1,7 +1,7 @@
 /* eslint func-names: ["error", "never"] */
 import mongoose, { Schema } from 'mongoose';
 import { typeOfConferences } from './lib/enums';
-import { ScheduleSchema } from './schemas/rootSchemas';
+import { ScheduleSchema, ContributionHistorySchema } from './schemas/rootSchemas';
 import MODELS from './index';
 // Helper functions
 import { createReference } from './lib/utilities';
@@ -19,6 +19,7 @@ const ConferenceSchema = new Schema({
     type: String,
     enum: typeOfConferences
   },
+  paper: ContributionHistorySchema,
   topic: String,
   event: createReference(MODELS.event),
   speakers: [createReference(MODELS.user)],
