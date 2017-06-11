@@ -30,8 +30,8 @@ const EventSchema = new Schema({
   conferences: [createReference(MODELS.conference)],
   contributions: [createReference(MODELS.contribution)],
   organizers: {
-    type: [createReference(MODELS.user)],
-    required: true
+    type: [createReference(MODELS.user)]
+    // required: true
   },
   sponsors: [createReference(MODELS.sponsor)],
   speakers: [createReference(MODELS.user)],

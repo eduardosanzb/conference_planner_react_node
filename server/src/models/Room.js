@@ -82,9 +82,7 @@ const RoomSchema = new Schema({
   bestSuitFor: {
     type: String
   },
-  building: {
-    type: createReference(MODELS.building)
-  },
+  building: createReference(MODELS.building),
   coordinates: {
     type: Schema.Types.Mixed
   }

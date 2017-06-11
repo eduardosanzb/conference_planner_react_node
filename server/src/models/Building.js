@@ -19,7 +19,7 @@ const BuildingSchema = new Schema({
     required: true
   },
   address: String,
-  coordinates: Boolean,
+  coordinates: String,
   rooms: [createReference(MODELS.room)],
   events: [createReference(MODELS.event)],
   conferences: [createReference(MODELS.conference)],

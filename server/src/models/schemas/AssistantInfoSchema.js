@@ -2,7 +2,7 @@ import { Schema } from 'mongoose';
 import { createReference } from '../lib/utilities';
 import MODELS from '../index';
 
-const AssistantInfoSchema = new Schema({
+const AttendantInfoSchema = new Schema({
   events: [createReference(MODELS.event)],
   payments: [createReference(MODELS.payment)],
   favoritesConferences: [{
@@ -15,4 +15,4 @@ const AssistantInfoSchema = new Schema({
   }]
 });
 
-module.exports = { AssistantInfoSchema };
+module.exports = { AttendantInfoSchema };

@@ -7,7 +7,7 @@ import initializeDb from './db';
 import middleware from './middleware';
 import api from './api';
 import config from './config.json';
-
+import fakeDB from './fakeDb';
 const app = express();
 
 // logger
@@ -25,6 +25,11 @@ app.use(bodyParser.json({
 initializeDb(async (mongoose) => {
 	// internal middleware
   app.use(middleware({ config, mongoose }));
+  try {
+    fakeDB();
+  } catch (error) {
+    console.log(error);
+  }
 
 	// api router
   api(app);

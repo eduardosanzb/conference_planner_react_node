@@ -1,13 +1,14 @@
 /* eslint prefer-arrow-callback: 0 */
 /* eslint func-names: ["error", "never"] */
+import _ from 'lodash';
 import mongoose, { Schema } from 'mongoose';
 import {
-  PermissionSchema,
   SpeakerInfoSchema,
-  AssistantInfoSchema,
+  AttendantInfoSchema,
   StaffInfoSchema
 } from './schemas/rootSchemas';
-import { getLevels, getHighest, createReference } from './lib/utilities';
+import { globalPermissions } from './lib/enums';
+import { getLevels, getHighest, createReference, getMatchLevel } from './lib/utilities';
 import MODELS from './index';
 
 const UserSchema = new Schema({
@@ -41,14 +42,24 @@ const UserSchema = new Schema({
   institution: String,
   friends: [createReference(MODELS.user)],
   events: [createReference(MODELS.event)],
-  permissions: [PermissionSchema],
+  permissions: [{
+    name: {
+      type: String,
+      enum: _.values(globalPermissions)
+    }
+  }],
   speakerInfo: SpeakerInfoSchema,
-  assistantInfo: AssistantInfoSchema,
+  attendantInfo: AttendantInfoSchema,
   staffInfo: StaffInfoSchema
 });
 
 UserSchema.virtual('maxPermission').get(function () {
   return this.permissions.map(getLevels).reduce(getHighest, 0);
+});
+
+UserSchema.virtual('permissionLevel').get(function () {
+  return _.entries(globalPermissions)
+		.reduce(getMatchLevel.bind(null, this.name), Number.MAX_SAFE_INTEGER);
 });
 
 module.exports = mongoose.model(MODELS.user, UserSchema);
