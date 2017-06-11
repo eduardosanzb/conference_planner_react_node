@@ -13,11 +13,13 @@ import MODELS from './index';
 const UserSchema = new Schema({
   firstName: {
     type: String,
-    index: true
+    index: true,
+    required: true
   },
   lastName: {
     type: String,
-    index: true
+    index: true,
+    required: true
   },
   email: {
     type: String,
