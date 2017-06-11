@@ -27,4 +27,4 @@ ContributionSchema.methods.accept(() => {
 	// TODO: create a conference
 });
 
-module.exports = mongoose.model(MODELS.event, ContributionSchema);
+module.exports = mongoose.model(MODELS.contribution, ContributionSchema);

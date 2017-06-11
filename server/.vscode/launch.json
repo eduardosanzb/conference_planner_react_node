@@ -1,0 +1,22 @@
+{
+	// Use IntelliSense to learn about possible Node.js debug attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "nodemon",
+			"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/nodemon",
+			"runtimeArgs": [
+				"-w src",
+				"--exec babel-node src --presets es2015,stage-0",
+				"--debug=5858"
+			],
+			"program": "${workspaceRoot}/src/index.js",
+			"restart": true,
+			"port": 5858
+		}
+	]
+}

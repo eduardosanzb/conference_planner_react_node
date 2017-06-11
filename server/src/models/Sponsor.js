@@ -21,4 +21,4 @@ const SponsorSchema = new Schema({
   }]
 });
 
-module.exports = mongoose.model(MODELS.new, SponsorSchema);
+module.exports = mongoose.model(MODELS.sponsor, SponsorSchema);

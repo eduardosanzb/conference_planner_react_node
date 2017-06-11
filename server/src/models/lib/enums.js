@@ -20,9 +20,12 @@ const contributionStatus = [
   'ACCEPTED'
 ];
 
+const typeOfConferences = ['CONFERENCE', 'WORKSHOP', 'MAIN'];
+
 module.exports = {
   sponsorLevels,
   globalPermissions,
   typeOfRoom,
-  contributionStatus
+  contributionStatus,
+  typeOfConferences
 };

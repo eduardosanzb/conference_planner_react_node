@@ -1,6 +1,5 @@
 /* eslint prefer-arrow-callback: 0 */
 /* eslint func-names: ["error", "never"] */
-import _ from 'lodash';
 import { Schema } from 'mongoose';
 import { createReference } from '../lib/utilities';
 import MODELS from '../index';
