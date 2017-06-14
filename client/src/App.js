@@ -12,7 +12,7 @@ require('./App.scss');
 
 const App = () => (
   <BrowserRouter>
-    <div style={{fontFamily: '"Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
+    <div style={{fontFamily: '"Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
       <Route path="/" component={Header} />
       <Main />
       <Route path="/" component={Footer} />

@@ -17,7 +17,7 @@ const renderTabs = () => {
 
 export default function (props) {
   return (
-      <Header style={{ background: '#fff', padding: 0, height: '60px', fontFamily: '"Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
+      <Header style={{ background: '#fff', padding: 0, height: '60px', fontFamily: '"Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
         <div className="logo"></div>
         <Menu
           mode="horizontal"

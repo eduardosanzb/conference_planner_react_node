@@ -3,7 +3,6 @@
 import mongoose, { Schema } from 'mongoose';
 import moment from 'moment';
 import MODELS from './index';
-import { BookedHoursSchema } from './schemas/rootSchemas';
 import { typeOfRoom } from './lib/enums';
 // Helper functions
 import {
@@ -13,7 +12,8 @@ import {
   getRoomResult,
   getMinMaxTime,
   byOverLap,
-  getRoomStatus } from './lib/utilities';
+  getRoomStatus
+} from './lib/utilities';
 
 const RoomSchema = new Schema({
   name: {
@@ -36,7 +36,27 @@ const RoomSchema = new Schema({
         required: true,
         default: Date.now
       },
-      bookedHours: [BookedHoursSchema]
+      bookedHours: [
+        {
+          duration: {
+            type: Number,
+            required: true,
+            min: 30,
+            default: 30
+          },
+          start: {
+            type: Date,
+            required: true
+          },
+          status: {
+            type: String,
+            enum: ['PENDING', 'BOOKED'],
+            required: true
+          },
+          event: createReference(MODELS.event),
+          conference: createReference(MODELS.conference)
+        }
+      ]
     }
   ],
   seats: {
@@ -92,7 +112,7 @@ const RoomSchema = new Schema({
 * @function isAvailable
 * @param  {Date} date - find out if available
 */
-RoomSchema.methods.isAvailable = function (date) {
+RoomSchema.methods.isAvailable = function(date) {
   const newDate = moment(date);
   const existedDate = this.schedule
     .map(toMoment)
@@ -106,7 +126,9 @@ RoomSchema.methods.isAvailable = function (date) {
     .map(getRoomResult.bind(null, newDate))
     .filter(byOverLap);
 
-  return results.length === 0 ? { status: true } : { status: false, payload: results.map(getRoomStatus) };
+  return results.length === 0
+    ? { status: true }
+    : { status: false, payload: results.map(getRoomStatus) };
 };
 
 module.exports = mongoose.model(MODELS.room, RoomSchema);

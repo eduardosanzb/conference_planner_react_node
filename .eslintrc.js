@@ -1,5 +1,5 @@
 module.exports = {
-    "extends": "airbnb",
+    "extends": "react",
     "plugins": [
         "import"
     ],
@@ -18,6 +18,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "linebreak-style": "off",
         "import/newline-after-import": "off",
         "comma-dangle": "off",

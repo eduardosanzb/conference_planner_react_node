@@ -114,6 +114,24 @@ const roomA = {
   floor: 2
 };
 
+const contribution = {
+  title: 'Functional programming',
+  history: [
+    {
+      link: 's3.bucket.com',
+      rejectionExplanation: 'Coloring lorem ipsum',
+      notes: 'Cool lorem ipsum',
+      veridic: 'REJECTED'
+    },
+    {
+      link: 's3.bucket.2.com',
+      rejectionExplanation: 'Coloring2 lorem ipsum',
+      notes: 'Cool2 lorem ipsum',
+      veridic: 'ACCEPTED'
+    }
+  ]
+};
+
 /**
 * @function ec => empty collection
 */
@@ -153,6 +171,16 @@ async function fakeDb() {
   const newNews = await Promise.all(news.map(n => New.create(n)));
   newEvent.news = newNews;
   await newEvent.save();
+
+  ec(Contribution);
+  ec(Conference);
+  const newContribution = new Contribution(contribution);
+  newContribution.event = newEvent;
+  newContribution.authors.push(newUsers[2]);
+  newEvent.contributions.push(newContribution);
+  await newContribution.save();
+  await newEvent.save();
+  await newContribution.accept();
 }
 
 module.exports = fakeDb;

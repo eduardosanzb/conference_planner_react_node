@@ -2,13 +2,13 @@
 /* eslint func-names: ["error", "never"] */
 import _ from 'lodash';
 import mongoose, { Schema } from 'mongoose';
-import {
-  SpeakerInfoSchema,
-  AttendantInfoSchema,
-  StaffInfoSchema
-} from './schemas/rootSchemas';
 import { globalPermissions } from './lib/enums';
-import { getLevels, getHighest, createReference, getMatchLevel } from './lib/utilities';
+import {
+  getLevels,
+  getHighest,
+  createReference,
+  getMatchLevel
+} from './lib/utilities';
 import MODELS from './index';
 
 const UserSchema = new Schema({
@@ -42,15 +42,37 @@ const UserSchema = new Schema({
   institution: String,
   friends: [createReference(MODELS.user)],
   events: [createReference(MODELS.event)],
-  permissions: [{
-    name: {
-      type: String,
-      enum: _.values(globalPermissions)
+  permissions: [
+    {
+      name: {
+        type: String,
+        enum: _.values(globalPermissions)
+      }
     }
-  }],
-  speakerInfo: SpeakerInfoSchema,
-  attendantInfo: AttendantInfoSchema,
-  staffInfo: StaffInfoSchema
+  ],
+  speakerInfo: {
+    contributions: [createReference(MODELS.contributions)],
+    conferences: [createReference(MODELS.conferences)]
+  },
+  attendantInfo: {
+    events: [createReference(MODELS.event)],
+    payments: [createReference(MODELS.payment)],
+    favoritesConferences: [
+      {
+        event: createReference(MODELS.event),
+        conferences: [createReference(MODELS.conferences)]
+      }
+    ],
+    favoritesSpeakers: [
+      {
+        event: createReference(MODELS.event),
+        speakers: [createReference(MODELS.user)]
+      }
+    ]
+  },
+  staffInfo: {
+    events: [createReference(MODELS.event)]
+  }
 });
 
 UserSchema.virtual('maxPermission').get(function () {
@@ -58,8 +80,10 @@ UserSchema.virtual('maxPermission').get(function () {
 });
 
 UserSchema.virtual('permissionLevel').get(function () {
-  return _.entries(globalPermissions)
-		.reduce(getMatchLevel.bind(null, this.name), Number.MAX_SAFE_INTEGER);
+  return _.entries(globalPermissions).reduce(
+    getMatchLevel.bind(null, this.name),
+    Number.MAX_SAFE_INTEGER
+  );
 });
 
 module.exports = mongoose.model(MODELS.user, UserSchema);
