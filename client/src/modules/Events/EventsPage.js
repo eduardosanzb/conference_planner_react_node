@@ -12,6 +12,9 @@ class UsersList extends React.Component {
   }
 
   render() {
+    if (this.props.loginData.loggedIn === false) {
+      return null;
+    }
     if (!Array.isArray(this.props.users)) {
       return <div>Loading ...</div>;
     }
@@ -30,9 +33,10 @@ class UsersList extends React.Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, loginData }) {
   console.log(users);
   return {
+    loginData,
     users: users.users
   };
 }

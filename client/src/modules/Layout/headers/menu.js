@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
@@ -65,7 +64,7 @@ export default function(props) {
             >
               <SubMenu
                 title={<span><Icon type="user" />{props.user.firstName}</span> }>
-                  <Menu.Item key="setting:1">Perfil</Menu.Item>
+                  <Menu.Item key="setting:1"><Link to='/profile'>Perfil</Link></Menu.Item>
                   <Menu.Item key="setting:2"><a onClick={props.logout}>Salir</a></Menu.Item>
               </SubMenu>
             </Menu>
