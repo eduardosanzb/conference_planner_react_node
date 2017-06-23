@@ -1,14 +1,7 @@
 import React from 'react';
-import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
-import { Callout, DirectionalHint } from 'office-ui-fabric-react/lib/Callout';
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
-
 // import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
+import { PrimaryButton, Callout, TextField } from 'office-ui-fabric-react';
 import Layout from 'antd/lib/layout';
-// import Icon from 'antd/lib/icon';
-import Button from 'antd/lib/button';
-import Popover from 'antd/lib/popover';
 const { Header } = Layout;
 
 export default class Login extends React.PureComponent {
@@ -65,8 +58,9 @@ export default class Login extends React.PureComponent {
           <div className="ms-Grid-row">
             <div className="ms-Grid-col ms-sm6 ms-md10 ms-lg10">Logo</div>
             <div className="ms-Grid-col ms-sm6 ms-md2 ms-lg2">
-              <div ref={menuButton => (this._menuButtonElement = menuButton)}>
+              <div ref={menuButton => (this._menuButtonElement = menuButton)} >
                 <PrimaryButton
+                  style={{ marginTop: 10 }}
                   onClick={this._onShowMenuClicked}
                   text={isCalloutVisible ? 'Cancelar' : 'Login'}
                 />

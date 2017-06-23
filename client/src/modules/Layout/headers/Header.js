@@ -7,9 +7,6 @@ import Menu from './menu';
 import Login from './login';
 
 class Header extends React.PureComponent {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		if (!this.props.loginData.loggedIn) {
 			return <Login onLogin={this.props.login}/>;

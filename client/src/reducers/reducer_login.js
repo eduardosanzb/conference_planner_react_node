@@ -11,7 +11,7 @@ export default function(state = {}, action) {
 		}
 		case USER_LOGOUT: {
 			window.sessionStorage.removeItem('jwtToken');
-			return { ...state, loggedIn: false, user: null }
+			return { loggedIn: false, user: null, users: null, events: null }
 		}
 		default:
 			return state;

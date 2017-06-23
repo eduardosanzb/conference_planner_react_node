@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
 const { Header } = Layout;
-const { SubMenu, MenuItemGroup } = Menu;
+const { SubMenu } = Menu;
 
 const TABS = [
   { route: '/', icon: 'home', text: 'Home', permission: ['ADMIN', 'ORGANIZER']},

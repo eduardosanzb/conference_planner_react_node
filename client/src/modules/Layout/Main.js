@@ -10,7 +10,7 @@ import Events from '../Events/EventsPage';
 import Buildings from '../Buildings/BuildingsPage';
 
 const Main = () => (
-  <Layout style={{ background: '#fff', height: '80vh', overflow: 'auto', fontFamily: 'BlinkMacSystemFont, "Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
+  <Layout style={{ background: '#ECECEC', width: '100%', height: '80vh', overflow: 'auto', fontFamily: 'BlinkMacSystemFont, "Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
     <Switch>
       <Route exact path='/' component={Home}/>
       <Route path='/profile' component={Profile}/>

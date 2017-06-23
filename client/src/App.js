@@ -11,12 +11,10 @@ import Footer from './modules/Layout/Footer';
 require('../node_modules/office-ui-fabric-react/dist/css/fabric.min.css');
 require('./antd.min.css');
 require('./App.scss');
+require('slick-carousel/slick/slick.css');
+require('slick-carousel/slick/slick-theme.css');
 
 class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
     this.props.loadUserFromToken();
   }

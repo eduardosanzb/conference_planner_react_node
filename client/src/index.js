@@ -14,7 +14,7 @@ const store = createStore(reducers, composeEnhancers(
 	applyMiddleware(promise)
 ));
 
-const storeWithMiddleware = applyMiddleware(promise)(createStore);
+// const storeWithMiddleware = applyMiddleware(promise)(createStore);
 
 
 ReactDOM.render(

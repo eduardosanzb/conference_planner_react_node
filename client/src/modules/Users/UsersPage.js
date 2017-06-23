@@ -13,6 +13,7 @@ class UsersList extends React.Component {
 
   render() {
     if (this.props.loginData.loggedIn === false) {
+      // TODO redirect to /
       return null;
     }
     if (!Array.isArray(this.props.users)) {
