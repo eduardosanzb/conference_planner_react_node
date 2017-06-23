@@ -26,12 +26,12 @@ export default class Login extends React.PureComponent {
   
   async _onCalloutDismiss() {
     if (this.state.email && this.state.password) {
-      const { email } = this.state;
+      const { email, password } = this.state;
       await this.setState({
         email: '',
         password: ''
       });
-      this.props.onLogin(email);
+      this.props.onLogin({ email, password });
     }
     this.setState({
       email: '',
@@ -86,10 +86,9 @@ export default class Login extends React.PureComponent {
                     <div className="ms-CalloutExample-content">
                       <TextField label='Correo' required={ true }
                         onChanged={email => this.setState({ email })}/>
-                      <TextField label='Contraseña' required={ true }
+                      <TextField label='Contraseña' required={ true } type='password'
                         onChanged={password => this.setState({ password })}/>
                       <PrimaryButton
-                        type='password'
                         onClick={this._onCalloutDismiss}
                         disabled={this.state.email === '' || this.state.password === ''}
                         text='Aceptar'

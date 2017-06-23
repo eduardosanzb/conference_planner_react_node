@@ -27,6 +27,10 @@ const UserSchema = new Schema({
     index: true,
     required: true
   },
+  password: {
+    type: String,
+    required: true
+  },
   activated: {
     type: Boolean,
     default: false

@@ -3,5 +3,6 @@
 	"bodyLimit": "16mb",
 	"corsHeaders": ["Link"],
 	"dbUrl": "mongodb://localhost/thesis",
-	"MOONGOSE_DEBUG": true
+	"MOONGOSE_DEBUG": true,
+	"secret": "THisISALovelySecret"
 }

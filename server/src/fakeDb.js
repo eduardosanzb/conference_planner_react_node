@@ -7,6 +7,8 @@ import Review from './models/Review';
 import Room from './models/Room';
 import Sponsor from './models/Sponsor';
 import User from './models/User';
+import bcrypt from 'bcrypt';
+const hash = bcrypt.hashSync('test', 10);
 
 const buildingA = {
   name: 'A',
@@ -26,6 +28,7 @@ const users = [
     firstName: 'test',
     lastName: 'admin',
     email: 'admin@test.com',
+    password: hash,
     activated: true,
     birthDate: new Date().setFullYear(1993, 3, 25),
     country: 'Mexico',
@@ -39,6 +42,7 @@ const users = [
     firstName: 'test',
     lastName: 'organizer',
     email: 'organizer@test.com',
+    password: hash,
     activated: true,
     birthDate: new Date().setFullYear(1993, 2, 25),
     country: 'Mexico',
@@ -52,6 +56,7 @@ const users = [
     firstName: 'test',
     lastName: 'speaker',
     email: 'speaker@test.com',
+    password: hash,
     activated: true,
     birthDate: new Date().setFullYear(1993, 2, 25),
     country: 'Mexico',
@@ -65,6 +70,7 @@ const users = [
     firstName: 'test',
     lastName: 'attendant',
     email: 'attendant@test.com',
+    password: hash,
     activated: true,
     birthDate: new Date().setFullYear(1993, 2, 25),
     country: 'Mexico',
@@ -151,7 +157,6 @@ async function fakeDb() {
 
   ec(User);
   const newUsers = await Promise.all(users.map(u => User.create(u)));
-
   ec(Sponsor);
   const sp = await Sponsor.create(sponsor);
 

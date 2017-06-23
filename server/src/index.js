@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+
 import initializeDb from './db';
 import middleware from './middleware';
 import api from './api';
@@ -14,24 +15,31 @@ const app = express();
 app.use(morgan('dev'));
 
 // 3rd party middleware
-app.use(cors({
-  exposedHeaders: config.corsHeaders
-}));
+app.use(
+  cors({
+    exposedHeaders: config.corsHeaders
+  })
+);
 
-app.use(bodyParser.json({
-  limit: config.bodyLimit
-}));
+app.use(
+  bodyParser.json({
+    limit: config.bodyLimit
+  })
+);
 
-initializeDb(async (mongoose) => {
-	// internal middleware
+initializeDb(async mongoose => {
+  // internal middleware
   app.use(middleware({ config, mongoose }));
-  try {
-    fakeDB();
-  } catch (error) {
-    console.log(error);
+
+  if (config.MOONGOSE_DEBUG) {
+    try {
+      // fakeDB();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-	// api router
+  // api router
   api(app);
 
   const server = http.createServer(app);

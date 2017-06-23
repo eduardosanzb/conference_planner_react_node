@@ -14,10 +14,11 @@ class Home extends React.Component {
     }
     // user logged in, decide the type of user
     if (showCMS(this.props.loginData.user)) {
+      const { firstName, lastName } = this.props.loginData.user;
       return (
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb items={[{ text: 'Home', key: 'home' }]} />
-          <h1>Hello</h1>
+          <h1>Hello {lastName}, {firstName}</h1>
         </Content>
       );
     }
