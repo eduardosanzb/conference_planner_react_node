@@ -20,12 +20,14 @@
     "backend"
   ],
   "dependencies": {
+    "axios": "^0.16.2",
     "dotenv": "2.0.0",
     "eslint-config-react-app": "^0.6.2",
     "eslint-loader": "1.6.0",
     "eslint-plugin-flowtype": "2.21.0",
     "extract-text-webpack-plugin": "1.0.1",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "prop-types": "^15.5.10"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

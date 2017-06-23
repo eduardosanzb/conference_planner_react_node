@@ -7,7 +7,7 @@ import Home from './HomePage';
 import Users from '../Users/UsersPage';
 
 const Main = () => (
-  <Layout style={{ background: '#fff', height: '80vh', overflow: 'auto', fontFamily: '"Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
+  <Layout style={{ background: '#fff', height: '80vh', overflow: 'auto', fontFamily: 'BlinkMacSystemFont, "Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
     <Switch>
       <Route exact path='/' component={Home}/>
       <Route path='/users' component={Users}/>

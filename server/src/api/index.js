@@ -7,8 +7,10 @@ import review from './reviews';
 import room from './rooms';
 import sponsor from './sponsors';
 import user from './users';
+import login from './login';
 
 const api = (app) => {
+  app.use('/api/login', login);
   app.use('/api/building', building);
   app.use('/api/conference', conference);
   app.use('/api/contribution', contribution);

@@ -36,7 +36,7 @@ UsersList.defaultProps = {
 
 function mapStateToProps({ users }) {
   return {
-    users: users.users
+    users: users
   };
 }
 

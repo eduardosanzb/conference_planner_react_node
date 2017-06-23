@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 // Components
-import Header from './modules/Layout/Header';
+import Header from './modules/Layout/headers/Header';
 import Main from './modules/Layout/Main';
 import Footer from './modules/Layout/Footer';
 
@@ -12,7 +12,7 @@ require('./App.scss');
 
 const App = () => (
   <BrowserRouter>
-    <div style={{fontFamily: '"Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
+    <div style={{fontFamily: 'BlinkMacSystemFont, "Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
       <Route path="/" component={Header} />
       <Main />
       <Route path="/" component={Footer} />

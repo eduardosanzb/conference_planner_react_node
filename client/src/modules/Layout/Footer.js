@@ -7,7 +7,7 @@ class FooterComponent extends React.Component {
   render() {
     return (
       <Footer style={{ textAlign: 'center' }}>
-            UPAEP ©2017 Created with <span><Icon type="heart" /><span> by the IT department</span></span>
+            UPAEP ©2017 Creado con <span><Icon type="heart" /><span> por @eduardosanzb</span></span>
       </Footer>
     );
   }

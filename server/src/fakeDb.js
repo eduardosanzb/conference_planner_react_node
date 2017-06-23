@@ -25,7 +25,7 @@ const users = [
   {
     firstName: 'test',
     lastName: 'admin',
-    email: 'test@test.com',
+    email: 'admin@test.com',
     activated: true,
     birthDate: new Date().setFullYear(1993, 3, 25),
     country: 'Mexico',
@@ -38,7 +38,7 @@ const users = [
   {
     firstName: 'test',
     lastName: 'organizer',
-    email: 'test@test.com',
+    email: 'organizer@test.com',
     activated: true,
     birthDate: new Date().setFullYear(1993, 2, 25),
     country: 'Mexico',
@@ -51,7 +51,7 @@ const users = [
   {
     firstName: 'test',
     lastName: 'speaker',
-    email: 'test@test.com',
+    email: 'speaker@test.com',
     activated: true,
     birthDate: new Date().setFullYear(1993, 2, 25),
     country: 'Mexico',
@@ -64,7 +64,7 @@ const users = [
   {
     firstName: 'test',
     lastName: 'attendant',
-    email: 'test@test.com',
+    email: 'attendant@test.com',
     activated: true,
     birthDate: new Date().setFullYear(1993, 2, 25),
     country: 'Mexico',

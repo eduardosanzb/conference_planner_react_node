@@ -1,0 +1,12 @@
+import { FETCH_LOGIN } from '../actions';
+
+export default function(state = {}, action) {
+	switch (action.type) {
+		case FETCH_LOGIN:{
+			const { success, data } = action.payload;
+			return {...state, loggedIn: success, user: data };
+		}
+		default:
+			return state;
+	}
+}
