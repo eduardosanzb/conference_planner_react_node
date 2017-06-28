@@ -1,5 +1,10 @@
 import { handleSuccess, handleError } from './handlers';
 
+/**
+ * 
+ * @param {any} req 
+ * @param {any} res 
+ */
 async function list(req, res) {
   try {
     const data = await this.model.find();

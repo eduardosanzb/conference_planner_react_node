@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import { PrimaryButton, Callout, TextField } from 'office-ui-fabric-react';
 import Layout from 'antd/lib/layout';
@@ -56,7 +57,7 @@ export default class Login extends React.PureComponent {
       >
         <div className="ms-Grid">
           <div className="ms-Grid-row">
-            <div className="ms-Grid-col ms-sm6 ms-md10 ms-lg10">Logo</div>
+            <div className="ms-Grid-col ms-sm6 ms-md10 ms-lg10"><Link to='/'>Logo</Link></div>
             <div className="ms-Grid-col ms-sm6 ms-md2 ms-lg2">
               <div ref={menuButton => (this._menuButtonElement = menuButton)} >
                 <PrimaryButton

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { USER_LOGIN, USER_LOGOUT, get } from './index';
+import { USER_LOGIN, USER_LOGOUT } from './index';
 
 export async function login ({ email, password }) {
 	const { data } = await axios.post('/api/login', { email, password });
