@@ -20,7 +20,6 @@ class Home extends React.Component {
       return (
         <div className="ms-Grid">
           <Content style={{ padding: '0 50px' }}>
-            <div className="ms-row">hoa</div>
             <EventsGallery events={this.props.events}/>
           </Content>
         </div>

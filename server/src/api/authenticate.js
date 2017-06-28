@@ -38,7 +38,6 @@ router.post('/signUp', async (req, res) => {
 
 router.get('/verifyToken', async (req, res) => {
   const { token } = req.query;
-	console.log(token);
   if (!token) {
 		return res.status(401).json({
 			success: false,

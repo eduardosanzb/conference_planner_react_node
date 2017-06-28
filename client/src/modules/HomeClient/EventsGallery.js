@@ -13,7 +13,6 @@ export default class EventsGallery extends React.PureComponent {
       events: props.events
     };
   }
-
   componentWillReceiveProps(nextProps) {
     const { events } = nextProps;
     if (events) {
@@ -35,7 +34,7 @@ export default class EventsGallery extends React.PureComponent {
       return (
         <div
           className="ms-Grid"
-          style={{ backgroundColor: 'white', minHeight: 200, padding: 5 }}
+          style={{ backgroundColor: 'white', minHeight: 200, padding: 5, marginTop: 10 }}
         >
           <div className="ms-Grid row">
             <h2>Eventos para ti</h2>

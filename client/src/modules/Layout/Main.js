@@ -7,6 +7,7 @@ import Home from './HomePage';
 import Profile from '../Profile/ProfilePage';
 import Users from '../Users/UsersPage';
 import Events from '../Events/EventsPage';
+import EventPage from '../Events/EventPage';
 import Buildings from '../Buildings/BuildingsPage';
 
 const Main = () => (
@@ -15,6 +16,7 @@ const Main = () => (
       <Route exact path='/' component={Home}/>
       <Route path='/profile' component={Profile}/>
       <Route path='/users' component={Users}/>
+      <Route path='/events/:id' component={EventPage}/>
       <Route path='/events' component={Events}/>
       <Route path='/buildings' component={Buildings}/>
     </Switch>

@@ -24,7 +24,7 @@ class UsersList extends React.Component {
         <Breadcrumb
           items={[
           { text: 'Home', key: 'home', href: '/' },
-          { text: 'Users', key: 'users' }
+          { text: 'Users', key: 'users', href: '#' }
           ]}
         />
         <h1>Users</h1>

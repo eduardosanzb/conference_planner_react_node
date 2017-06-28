@@ -13,6 +13,7 @@ const verifyToken = async (req, res, next) => {
   const bearerFree = token.replace('Bearer ', '');
 	try {
 		const user = await verifyTokenAsync(bearerFree, secret);
+		console.log(user);
 		req.user = user;
 		next();	
 	} catch (error) {

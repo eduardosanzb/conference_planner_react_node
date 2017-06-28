@@ -17,7 +17,7 @@ export function logout() {
 }
 
 export async function verifyToken ({ token }) {
-	const { data } = await axios.get('api/auth/verifyToken', {
+	const { data } = await axios.get('/api/auth/verifyToken', {
 		params: {
 			token
 		}
