@@ -4,8 +4,14 @@ machine:
 
 dependencies:
   override:
-    - cd client
-    - yarn
-    - yarn build
+    - cd ./client && yarn && yarn build
+    - cd ./server && npm run build
   cache_directories:
     - "node_modules"
+
+deployment:
+ master:
+  branch: master
+  commands:
+   - echo 'deploying'
+   - ssh -v root@dalet.tk "cd ~/www/deploy_thesis; ./circle_deployer.sh"
