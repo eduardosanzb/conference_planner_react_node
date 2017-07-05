@@ -7,7 +7,9 @@ dependencies:
     - cd ./client && yarn && yarn build
     - cd ./server && yarn && npm run build && cp package.json dist/package.json
   cache_directories:
-    - "node_modules"
+    - "/node_modules"
+    - "./client/node_modules"
+    - ".server/node_modules"
 
 deployment:
  master:
