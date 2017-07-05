@@ -1,6 +1,9 @@
 machine:
   node:
     version: 8.0.0
+test:
+  override:
+    - echo "test"
 
 dependencies:
   override:
@@ -10,10 +13,6 @@ dependencies:
     - "/node_modules"
     - "./client/node_modules"
     - ".server/node_modules"
-  
-  test:
-  override:
-    - echo "test"
 
 deployment:
  master:
