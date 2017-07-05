@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { Spinner, SpinnerSize } from 'office-ui-fabric-react';
 import Card from 'antd/lib/card';
-import Button from 'antd/lib/button';
+// import Button from 'antd/lib/button';
 
 export default class EventsGallery extends React.PureComponent {
   constructor(props) {
@@ -50,7 +50,7 @@ export default class EventsGallery extends React.PureComponent {
                   loading={false}
                 >
                   <div>
-                    <img width='100%' src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
+                    <img width='100%' alt="sdfsdf" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
 										<p>{e.startDate}</p>
                   </div>
                 </Card>

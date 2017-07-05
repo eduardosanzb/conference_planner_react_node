@@ -15,7 +15,7 @@ import {
 
 import { showCMS } from '../../lib';
 import { fetchEvent } from '../../actions';
-const { Content } = Layout;
+// const { Content } = Layout;
 const centerContent = {
   display: 'flex',
   alignItems: 'center',
