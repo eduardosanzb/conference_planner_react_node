@@ -34,7 +34,7 @@ initializeDb(async mongoose => {
 
   if (config.MOONGOSE_DEBUG) {
     try {
-      // fakeDB();
+      fakeDB();
     } catch (error) {
       console.log(error);
     }
