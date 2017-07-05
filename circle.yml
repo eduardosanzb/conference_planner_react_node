@@ -16,3 +16,4 @@ deployment:
    - echo 'deploying'
    - scp -r ./client/build root@dalet.tk:www/thesis/client
    - scp -r ./server/dist root@dalet.tk:www/thesis/server
+   - ssh -v root@dalet.tk 'pm2 delete all && pm2 start /www/thesis/server/index.js'
