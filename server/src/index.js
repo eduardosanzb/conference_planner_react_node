@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import http from 'http';
 import express from 'express';
 import cors from 'cors';
@@ -10,6 +9,12 @@ import middleware from './middleware';
 import api from './api';
 import config from './config.json';
 import fakeDB from './fakeDb';
+
+const env = process.env.ENV || 'dev';
+if (env !== 'dev') {
+  require('babel-polyfill');
+}
+
 const app = express();
 
 // logger
@@ -34,7 +39,9 @@ initializeDb(async mongoose => {
 
   if (config.MOONGOSE_DEBUG) {
     try {
-      // fakeDB();
+      if (env === 'dev') {
+        fakeDB();
+      }
     } catch (error) {
       console.log(error);
     }
