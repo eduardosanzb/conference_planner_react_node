@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import Layout from 'antd/lib/layout';
 import Card from 'antd/lib/card';
 import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
@@ -55,6 +54,8 @@ class EventPage extends React.Component {
         return <div>sponsors</div>
       case 'schedule':
         return <div>schedule</div>
+      default:
+        return;
     }
   }
   render() {
@@ -78,6 +79,7 @@ class EventPage extends React.Component {
             <Card bordered={false} style={{ width: '90%' }}>
               <div className="ms-Grid-row">
                 <img
+                  alt="sdfs"
                   width="100%"
                   style={{ maxHeight: 200 }}
                   src="https://i2.wp.com/familypawn2017.com/wp-content/uploads/2017/03/header-image-8-4.jpg?ssl=1"
