@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - cd ./client && yarn && yarn build
-    - cd ./server && yarn && npm run build
+    - cd ./server && yarn && npm run build && cp package.json dist/package.json
   cache_directories:
     - "node_modules"
 
@@ -16,4 +16,6 @@ deployment:
    - echo 'deploying'
    - scp -r ./client/build root@dalet.tk:www/thesis/client
    - scp -r ./server/dist root@dalet.tk:www/thesis/server
-   - ssh -v root@dalet.tk 'pm2 delete all && pm2 start /www/thesis/server/index.js'
+   - ssh -v root@dalet.tk 'yarn /www/thesis/server'
+   - ssh -v root@dalet.tk 'sudo service nginx restart'
+   - ssh -v root@dalet.tk 'pm2 delete thesis && pm2 start /www/thesis/server/index.js --name thesis'
