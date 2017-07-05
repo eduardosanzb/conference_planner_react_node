@@ -20,4 +20,4 @@ deployment:
    - scp -r ./server/dist/* root@dalet.tk:www/data/server
    - ssh root@dalet.tk 'cd www/data/server; npm i'
    - ssh root@dalet.tk 'sudo service nginx restart'
-   - ssh root@dalet.tk 'pm2 delete thesis && pm2 start /www/data/server/index.js --name thesis'
+   - ssh root@dalet.tk 'pm2 delete thesis && pm2 start www/data/server/index.js --name thesis'
