@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - cd ./client && yarn && yarn build
-    - cd ./server && npm run build
+    - cd ./server && yarn && npm run build
   cache_directories:
     - "node_modules"
 
