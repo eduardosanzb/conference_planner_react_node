@@ -1,0 +1,11 @@
+machine:
+  node:
+    version: 8.0.0
+
+dependencies:
+  override:
+    - cd client
+    - yarn
+    - yarn build
+  cache_directories:
+    - "node_modules"
