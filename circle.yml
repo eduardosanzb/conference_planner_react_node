@@ -14,8 +14,8 @@ deployment:
   branch: master
   commands:
    - echo 'deploying'
-   - scp -r ./client/build root@dalet.tk:www/thesis/client
-   - scp -r ./server/dist root@dalet.tk:www/thesis/server
-   - ssh -v root@dalet.tk 'yarn /www/thesis/server'
+   - scp -r ./client/build/* root@dalet.tk:www/data/client
+   - scp -r ./server/dist/* root@dalet.tk:www/data/server
+   - ssh -v root@dalet.tk 'yarn /www/data/server'
    - ssh -v root@dalet.tk 'sudo service nginx restart'
-   - ssh -v root@dalet.tk 'pm2 delete thesis && pm2 start /www/thesis/server/index.js --name thesis'
+   - ssh -v root@dalet.tk 'pm2 delete thesis && pm2 start /www/data/server/index.js --name thesis'
