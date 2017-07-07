@@ -1,9 +1,7 @@
 const env = process.env.ENV || 'dev';
 console.log('==========AQUI=========');
 console.log(env);
-if (env !== 'dev') { 
   require('babel-polyfill');
-}
 import http from 'http';
 import express from 'express';
 import cors from 'cors';

@@ -25,6 +25,7 @@
 		"babel-jest": "^20.0.3",
 		"babel-preset-jest": "^20.0.3",
 		"bcrypt": "^1.0.2",
+		"bcrypt-nodejs": "0.0.3",
 		"body-parser": "^1.13.3",
 		"compression": "^1.5.2",
 		"cookie-parser": "^1.4.3",
