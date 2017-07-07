@@ -1,3 +1,9 @@
+const env = process.env.ENV || 'dev';
+console.log('==========AQUI=========');
+console.log(env);
+if (env !== 'dev') { 
+  require('babel-polyfill');
+}
 import http from 'http';
 import express from 'express';
 import cors from 'cors';
@@ -9,11 +15,6 @@ import middleware from './middleware';
 import api from './api';
 import config from './config.json';
 import fakeDB from './fakeDb';
-
-const env = process.env.ENV || 'dev';
-if (env !== 'dev') {
-  require('babel-polyfill');
-}
 
 const app = express();
 
