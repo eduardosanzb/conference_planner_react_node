@@ -1,7 +1,9 @@
 {
   "presets": [
     "es2015",
+    "stage-0",
 		"jest"
   ],
-  "plugins": []
+  "plugins": [
+  ]
 }

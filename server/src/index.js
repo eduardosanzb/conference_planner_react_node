@@ -1,7 +1,7 @@
+require('babel-polyfill');
 const env = process.env.ENV || 'dev';
 console.log('==========AQUI=========');
 console.log(env);
-  require('babel-polyfill');
 import http from 'http';
 import express from 'express';
 import cors from 'cors';
