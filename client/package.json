@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^2.11.0",
     "axios": "^0.16.1",
+    "eslint-config-react": "^1.1.7",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "office-ui-fabric-react": "^4.5.1",

@@ -18,6 +18,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "indent": ["error", 2],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "linebreak-style": "off",
         "import/newline-after-import": "off",

@@ -1,4 +1,5 @@
-require('babel-polyfill');
+require("babel-core/register");
+require("babel-polyfill");
 const env = process.env.ENV || 'dev';
 console.log('==========AQUI=========');
 console.log(env);

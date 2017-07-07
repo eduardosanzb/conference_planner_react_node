@@ -22,7 +22,7 @@ const centerContent = {
 };
 
 class EventPage extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -30,10 +30,10 @@ class EventPage extends React.Component {
       currentSlide: 'home'
     };
   }
-  componentDidMount() {
+  componentDidMount () {
     this.props.fetchEvent(this.props.match.params.id);
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (this.state.event !== nextProps.event) {
       this.setState({ event: nextProps.event });
     }
@@ -43,22 +43,22 @@ class EventPage extends React.Component {
     this.setState({ currentSlide: e.key });
   };
   _renderContent = () => {
-    switch(this.state.currentSlide) {
-      case 'home':
-        return <div>home</div>
-      case 'news':
-        return <div>news</div>
-      case 'conferences':
-        return <div>conferences</div>
-      case 'sponsors':
-        return <div>sponsors</div>
-      case 'schedule':
-        return <div>schedule</div>
-      default:
-        return;
+    switch (this.state.currentSlide) {
+    case 'home':
+      return <div>home</div>;
+    case 'news':
+      return <div>news</div>;
+    case 'conferences':
+      return <div>conferences</div>;
+    case 'sponsors':
+      return <div>sponsors</div>;
+    case 'schedule':
+      return <div>schedule</div>;
+    default:
+      return;
     }
-  }
-  render() {
+  };
+  render () {
     const { event } = this.state;
     if (event) {
       const date = new Date(event.startDate);
@@ -70,8 +70,16 @@ class EventPage extends React.Component {
               <Breadcrumb
                 items={[
                   { text: 'Inicio', key: 'home', href: '/' },
-                  { text: 'Eventos', key: 'events', href: '/events' },
-                  { text: event.name.toLowerCase(), key: event._id, href: '#' }
+                  {
+                    text: 'Eventos',
+                    key: 'events',
+                    href: '/events'
+                  },
+                  {
+                    text: event.name.toLowerCase(),
+                    key: event._id,
+                    href: '#'
+                  }
                 ]}
               />
             </div>}
@@ -116,14 +124,14 @@ class EventPage extends React.Component {
                     <PrimaryButton
                       // TODO: clean this code
                       iconProps={
-                        this.props.user.events.find(e => e._id === event._id)
-                          ? 'Add'
-                          : 'User'
+                        this.props.user.events.find(e => e._id === event._id) ?
+                          'Add' :
+                          'User'
                       }
                       text={
-                        this.props.user.events.find(e => e._id === event._id)
-                          ? 'Add'
-                          : 'Remove'
+                        this.props.user.events.find(e => e._id === event._id) ?
+                          'Add' :
+                          'Remove'
                       }
                     />}
                   {!this.props.loggedIn &&
@@ -158,13 +166,19 @@ class EventPage extends React.Component {
               </div>
             </Card>
           </div>
-          
-          <div className="ms-Row" style={{...centerContent, marginTop: 15, marginBottom: 20}}>
+
+          <div
+            className="ms-Row"
+            style={{
+              ...centerContent,
+              marginTop: 15,
+              marginBottom: 20
+            }}
+          >
             <Card bordered={false} style={{ width: '90%' }}>
               {this._renderContent()}
             </Card>
           </div>
-
         </div>
       );
     }
@@ -176,7 +190,7 @@ class EventPage extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     event: state.events.currentEvent,
     loggedIn: state.loginData.loggedIn,
