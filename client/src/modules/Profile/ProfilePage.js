@@ -44,6 +44,7 @@ export default class Profile extends React.PureComponent{
 	                  src="https://i2.wp.com/familypawn2017.com/wp-content/uploads/2017/03/header-image-8-4.jpg?ssl=1"
 	                />
 	                <img 
+	                  alt="sdfs"
 	                  style={profileImg}
 	                  src="https://yt3.ggpht.com/-YL73KcPdh0g/AAAAAAAAAAI/AAAAAAAAAAA/y-lsqPa9FzI/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
 	                />
