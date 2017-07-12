@@ -7,11 +7,11 @@ const { Content } = Layout;
 // Redux
 
 class UsersList extends React.Component {
-  componentWillMount() {
+  componentWillMount () {
     this.props.fetchUsers();
   }
 
-  render() {
+  render () {
     if (this.props.loginData.loggedIn === false) {
       return null;
     }
@@ -33,7 +33,7 @@ class UsersList extends React.Component {
   }
 }
 
-function mapStateToProps({ users, loginData }) {
+function mapStateToProps ({ users, loginData }) {
   console.log(users);
   return {
     loginData,

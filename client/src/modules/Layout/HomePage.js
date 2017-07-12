@@ -11,11 +11,11 @@ const showCMS = user =>
   user.permissions.some(p => p.name === 'ADMIN' || p.name === 'ORGANIZER');
 
 class Home extends React.Component {
-  componentWillMount(){
+  componentWillMount () {
     this.props.fetchEvents();
   }
 
-  render() {
+  render () {
     if (!this.props.loginData.loggedIn || !showCMS(this.props.loginData.user)) {
       return (
         <div className="ms-Grid">
@@ -37,10 +37,10 @@ class Home extends React.Component {
     }
   }
 }
-function mapStateToProps({ loginData, events }) {
+function mapStateToProps ({ loginData, events }) {
   return {
     loginData,
     events: events.events
   };
 }
-export default connect(mapStateToProps, { login , fetchEvents})(Home);
+export default connect(mapStateToProps, { login, fetchEvents })(Home);
