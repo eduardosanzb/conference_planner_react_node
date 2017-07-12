@@ -1,9 +1,9 @@
 import { handleSuccess, handleError } from './handlers';
-
 /**
- * 
- * @param {any} req 
- * @param {any} res 
+ * REST API POST
+ * Generic call
+ * @param {Object} req 
+ * @param {Object} res 
  */
 async function list(req, res) {
   try {
@@ -13,7 +13,12 @@ async function list(req, res) {
     handleError(res, error);
   }
 }
-
+/**
+ * REST API POST
+ * Generic call
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 async function show(req, res) {
   const { id } = req.params;
   try {
@@ -23,7 +28,12 @@ async function show(req, res) {
     handleError(res, error);
   }
 }
-
+/**
+ * REST API POST a new element to the model
+ * Generic call
+ * @param {Object} req 
+ * @param {Object} res 
+ */
 async function create(req, res) {
   const { body } = req;
   try {
