@@ -6,7 +6,7 @@ import { loadUserFromToken } from './actions';
 // Components
 import Header from './modules/Layout/headers/Header';
 import Main from './modules/Layout/Main';
-import Footer from './modules/Layout/Footer';
+// import Footer from './modules/Layout/Footer';
 
 require('../node_modules/office-ui-fabric-react/dist/css/fabric.min.css');
 require('./antd.min.css');
@@ -15,10 +15,10 @@ require('slick-carousel/slick/slick.css');
 require('slick-carousel/slick/slick-theme.css');
 
 class App extends React.PureComponent {
-  componentWillMount() {
+  componentWillMount () {
     this.props.loadUserFromToken();
   }
-  render() {
+  render () {
     return (
       <BrowserRouter>
         <div
@@ -28,7 +28,7 @@ class App extends React.PureComponent {
           }} >
           <Route path="/" component={Header} />
           <Main />
-          <Route path="/" component={Footer} />
+          {/*<Route path="/" component={Footer} />*/}
         </div>
       </BrowserRouter>
     );

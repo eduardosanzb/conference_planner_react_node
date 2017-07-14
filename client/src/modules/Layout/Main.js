@@ -11,16 +11,16 @@ import EventPage from '../Events/EventPage';
 import Buildings from '../Buildings/BuildingsPage';
 
 const Main = () => (
-  <Layout style={{ background: '#ECECEC', width: '100%', height: '80vh', overflow: 'auto', fontFamily: 'BlinkMacSystemFont, "Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
+  <Layout style={{ background: '#ECECEC', width: '100%', height: '100vh', overflow: 'auto', fontFamily: 'BlinkMacSystemFont, "Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif' }}>
     <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route path='/profile' component={Profile}/>
-      <Route path='/users' component={Users}/>
-      <Route path='/events/:id' component={EventPage}/>
-      <Route path='/events' component={Events}/>
-      <Route path='/buildings' component={Buildings}/>
+      <Route exact path="/" component={Home}/>
+      <Route path="/profile" component={Profile}/>
+      <Route path="/users" component={Users}/>
+      <Route path="/events/:id" component={EventPage}/>
+      <Route path="/events" component={Events}/>
+      <Route path="/buildings" component={Buildings}/>
     </Switch>
-  </Layout> 
+  </Layout>
 );
 
 // loadTheme({
