@@ -8,24 +8,45 @@ const { Header } = Layout;
 const { SubMenu } = Menu;
 
 const TABS = [
-  { route: '/', icon: 'home', text: 'Home', permission: ['ADMIN', 'ORGANIZER']},
+  {
+    route: '/',
+    icon: 'home',
+    text: 'Home',
+    permission: ['ADMIN', 'ORGANIZER']
+  },
   { route: '/users', icon: 'user', text: 'Usuarios', permission: ['ADMIN'] },
-  { route: '/events', icon: 'schedule', text: 'Eventos', permission: ['ADMIN', 'ORGANIZER'] },
-  { route: '/buildings', icon: 'bank', text: 'Edificios', permission: ['ADMIN'] }
+  {
+    route: '/events',
+    icon: 'schedule',
+    text: 'Eventos',
+    permission: ['ADMIN', 'ORGANIZER']
+  },
+  {
+    route: '/buildings',
+    icon: 'bank',
+    text: 'Edificios',
+    permission: ['ADMIN']
+  }
 ];
 
-const renderTabs = (permission) => {
-  return TABS.map(t => t.permission.some(p => p === permission) ?
-    <Menu.Item key={t.route}>
-      <Link to={t.route}><Icon type={t.icon} />{t.text}</Link>
-    </Menu.Item> : null
+const renderTabs = permission => {
+  return TABS.map(
+    t =>
+      t.permission.some(p => p === permission) ?
+        <Menu.Item key={t.route}>
+            <Link to={t.route}>
+              <Icon type={t.icon} />
+              {t.text}
+            </Link>
+          </Menu.Item> :
+        null
   );
 };
 
 const showCMS = user =>
   user.permissions.some(p => p.name === 'ADMIN' || p.name === 'ORGANIZER');
 
-export default function(props) {
+export default function (props) {
   if (showCMS(props.user)) {
     return (
       <Header
@@ -35,10 +56,22 @@ export default function(props) {
           height: '60px',
           fontFamily:
             'BlinkMacSystemFont, "Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif'
-        }} >
+        }}
+      >
         <div className="ms-Grid">
           <div className="ms-Grid-col ms-sm1">
-            <div className="logo" />
+            <Link to="/">
+              <img
+                style={{
+                  maxHeight: 40,
+                  maxWidth: 40,
+                  marginLeft: 20,
+                  marginTop: 15
+                }}
+                src="https://upload.wikimedia.org/wikipedia/en/3/36/Droitwich_Spa_High_School_logo.png"
+                alt="mm"
+              />
+            </Link>
           </div>
           <div className="ms-Grid-col ms-sm9">
             <Menu
@@ -63,9 +96,19 @@ export default function(props) {
               }}
             >
               <SubMenu
-                title={<span><Icon type="user" />{props.user.firstName}</span> }>
-                  <Menu.Item key="setting:1"><Link to='/profile'>Perfil</Link></Menu.Item>
-                  <Menu.Item key="setting:2"><a onClick={props.logout}>Salir</a></Menu.Item>
+                title={
+                  <span>
+                    <Icon type="user" />
+                    {props.user.firstName}
+                  </span>
+                }
+              >
+                <Menu.Item key="setting:1">
+                  <Link to="/profile">Perfil</Link>
+                </Menu.Item>
+                <Menu.Item key="setting:2">
+                  <a onClick={props.logout}>Salir</a>
+                </Menu.Item>
               </SubMenu>
             </Menu>
           </div>
@@ -74,35 +117,55 @@ export default function(props) {
     );
   }
   return (
-      <Header
-        style={{
-          background: '#fff',
-          padding: 0,
-          height: '60px',
-          fontFamily:
-            'BlinkMacSystemFont, "Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif'
-        }} >
-        <div className="ms-Grid">
-          <div className="ms-Grid-col ms-sm10">
-            <div className="logo" />
-          </div>
-          <div className="ms-Grid-col ms-sm2">
-            <Menu
-              mode="horizontal"
+    <Header
+      style={{
+        background: '#fff',
+        padding: 0,
+        height: '60px',
+        fontFamily:
+          'BlinkMacSystemFont, "Selawik UI WestEuropean","Selawik UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif'
+      }}
+    >
+      <div className="ms-Grid">
+        <div className="ms-Grid-col ms-sm10">
+          <Link to="/">
+            <img
               style={{
-                marginTop: 'auto',
-                marginBottom: 'auto',
-                maxHeight: '50px'
+                maxHeight: 40,
+                maxWidth: 40,
+                marginLeft: 20,
+                marginTop: 15
               }}
-            >
-              <SubMenu
-                title={<span><Icon type="user" />{props.user.firstName}</span> }>
-                  <Menu.Item key="setting:1">Perfil</Menu.Item>
-                  <Menu.Item key="setting:2"><a onClick={props.logout}>Salir</a></Menu.Item>
-              </SubMenu>
-            </Menu>
-          </div>
+              src="https://upload.wikimedia.org/wikipedia/en/3/36/Droitwich_Spa_High_School_logo.png"
+              alt="mm"
+            />
+          </Link>
         </div>
-      </Header>
-    );
-};
+        <div className="ms-Grid-col ms-sm2">
+          <Menu
+            mode="horizontal"
+            style={{
+              marginTop: 'auto',
+              marginBottom: 'auto',
+              maxHeight: '50px'
+            }}
+          >
+            <SubMenu
+              title={
+                <span>
+                  <Icon type="user" />
+                  {props.user.firstName}
+                </span>
+              }
+            >
+              <Menu.Item key="setting:1">Perfil</Menu.Item>
+              <Menu.Item key="setting:2">
+                <a onClick={props.logout}>Salir</a>
+              </Menu.Item>
+            </SubMenu>
+          </Menu>
+        </div>
+      </div>
+    </Header>
+  );
+}

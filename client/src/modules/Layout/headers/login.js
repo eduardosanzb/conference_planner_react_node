@@ -6,7 +6,7 @@ import Layout from 'antd/lib/layout';
 const { Header } = Layout;
 
 export default class Login extends React.PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       isCalloutVisible: false,
@@ -17,8 +17,8 @@ export default class Login extends React.PureComponent {
     this._onShowMenuClicked = this._onShowMenuClicked.bind(this);
     this._onCalloutDismiss = this._onCalloutDismiss.bind(this);
   }
-  
-  async _onCalloutDismiss() {
+
+  async _onCalloutDismiss () {
     if (this.state.email && this.state.password) {
       const { email, password } = this.state;
       await this.setState({
@@ -34,7 +34,7 @@ export default class Login extends React.PureComponent {
     });
   }
 
-  _onShowMenuClicked() {
+  _onShowMenuClicked () {
     this.setState({
       email: '',
       password: '',
@@ -42,8 +42,7 @@ export default class Login extends React.PureComponent {
     });
   }
 
-  
-  render() {
+  render () {
     let { isCalloutVisible } = this.state;
     return (
       <Header
@@ -57,9 +56,22 @@ export default class Login extends React.PureComponent {
       >
         <div className="ms-Grid">
           <div className="ms-Grid-row">
-            <div className="ms-Grid-col ms-sm6 ms-md10 ms-lg10"><Link to='/'>Logo</Link></div>
+            <div className="ms-Grid-col ms-sm6 ms-md10 ms-lg10">
+              <Link to="/">
+                <img
+                  style={{
+                    maxHeight: 40,
+                    maxWidth: 40,
+                    marginLeft: 20,
+                    marginTop: 15
+                  }}
+                  src="https://upload.wikimedia.org/wikipedia/en/3/36/Droitwich_Spa_High_School_logo.png"
+                  alt="mm"
+                />
+              </Link>
+            </div>
             <div className="ms-Grid-col ms-sm6 ms-md2 ms-lg2">
-              <div ref={menuButton => (this._menuButtonElement = menuButton)} >
+              <div ref={menuButton => (this._menuButtonElement = menuButton)}>
                 <PrimaryButton
                   style={{ marginTop: 10 }}
                   onClick={this._onShowMenuClicked}
@@ -71,25 +83,33 @@ export default class Login extends React.PureComponent {
                   gapSpace={2}
                   targetElement={this._menuButtonElement}
                   onDismiss={this._onCalloutDismiss}
-                  setInitialFocus={true}
+                  setInitialFocus
                 >
-                  <div style={{padding: 15, minWidth: 50 }}>
-                    <p className="ms-CalloutExample-title">
-                      Login
-                    </p>
+                  <div style={{ padding: 15, minWidth: 50 }}>
+                    <p className="ms-CalloutExample-title">Login</p>
                     <div className="ms-CalloutExample-inner">
-                    <div className="ms-CalloutExample-content">
-                      <TextField label='Correo' required={ true }
-                        onChanged={email => this.setState({ email })}/>
-                      <TextField label='Contraseña' required={ true } type='password'
-                        onChanged={password => this.setState({ password })}/>
-                      <PrimaryButton
-                        onClick={this._onCalloutDismiss}
-                        disabled={this.state.email === '' || this.state.password === ''}
-                        text='Aceptar'
-                      />
+                      <div className="ms-CalloutExample-content">
+                        <TextField
+                          label="Correo"
+                          required
+                          onChanged={email => this.setState({ email })}
+                        />
+                        <TextField
+                          label="Contraseña"
+                          required
+                          type="password"
+                          onChanged={password => this.setState({ password })}
+                        />
+                        <PrimaryButton
+                          onClick={this._onCalloutDismiss}
+                          disabled={
+                            this.state.email === '' ||
+                            this.state.password === ''
+                          }
+                          text="Aceptar"
+                        />
+                      </div>
                     </div>
-                  </div>
                   </div>
                 </Callout>}
             </div>
