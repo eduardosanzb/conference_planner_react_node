@@ -43,7 +43,7 @@ class BuildingsList extends React.Component {
       console.log(lat);
       console.log(long);
       const url = `https://www.google.com/maps/preview/@${lat},${long},15z`;
-      return <a href={url} target="_blank">MAPA</a>;
+      return <a href={url} >MAPA</a>;
     }
     console.log(fieldContent);
     return fieldContent;
