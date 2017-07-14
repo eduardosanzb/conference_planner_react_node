@@ -17,12 +17,12 @@ const { Content } = Layout;
 const items = [
   {
     key: 'addRow',
-    name: 'Agregar evento',
+    name: 'Agregar edificio',
     icon: 'Add'
   },
   {
     key: 'deleteRow',
-    name: 'Editar evento',
+    name: 'Editar edificio',
     icon: 'Edit'
   }
 ];
@@ -38,10 +38,7 @@ class BuildingsList extends React.Component {
       return <div>{moment(fieldContent).format('DD/MM/YYYY')}</div>;
     }
     if (column.key === 'map') {
-      console.log(fieldContent);
       const [lat, long] = fieldContent.split(',');
-      console.log(lat);
-      console.log(long);
       const url = `https://www.google.com/maps/preview/@${lat},${long},15z`;
       return <a href={url} >MAPA</a>;
     }
