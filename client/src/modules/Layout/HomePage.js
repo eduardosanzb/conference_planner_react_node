@@ -94,24 +94,9 @@ class Home extends React.Component {
                   bordered={false}
                   style={{ width: '100%' }}
                 >
-                  <PieChart width={400} height={200}>
-                    <Pie
-                      data={data01}
-                      cx={200}
-                      cy={200}
-                      outerRadius={60}
-                      fill="#8884d8"
-                    />
-                    <Pie
-                      data={data02}
-                      cx={200}
-                      cy={200}
-                      innerRadius={70}
-                      outerRadius={90}
-                      fill="#82ca9d"
-                      label
-                    />
-                  </PieChart>
+                <p>Card content</p>
+                  <p>Card content</p>
+                  <p>Card content</p>
                 </Card>
               </div>
               <div className="ms-Grid-col ms-sm5">
@@ -136,7 +121,7 @@ class Home extends React.Component {
               </div>
             </div>
             <div className="ms-Grid-row" style={{ marginTop: 10 }}>
-              <div className="ms-Grid-col ms-sm8">
+              <div className="ms-Grid-col ms-sm4">
                 <Card
                   bordered={false}
                   style={{ width: '100%', maxWidth: 210 }}
@@ -151,7 +136,7 @@ class Home extends React.Component {
                   </LineChart>
                 </Card>
               </div>
-              <div className="ms-Grid-col ms-sm4">
+              <div className="ms-Grid-col ms-sm8">
                 <Card
                   bordered={false}
                   style={{ width: '100%' }}
