@@ -3,6 +3,8 @@ import Card from 'antd/lib/card';
 import Badge from 'antd/lib/badge';
 import Icon from 'antd/lib/icon';
 import { Label } from 'office-ui-fabric-react/lib/Label';
+
+// Styles
 const centerContent = {
   display: 'flex',
   alignItems: 'center',
@@ -91,8 +93,7 @@ export default class Profile extends React.PureComponent {
             </div>
             <div className="ms-Grid-row">
               <Label>
-                <i
-                  className="ms-Icon ms-Icon--ReadingMode"
+                <i className="ms-Icon ms-Icon--ReadingMode"
                   style={{ fontSize: 16, marginRight: 8, fontWeight: 'bold' }}
                   aria-hidden="true"
                 />{' '}

@@ -4,8 +4,7 @@ import {
   Spinner,
   SpinnerSize,
   DetailsList,
-  DetailsListLayoutMode,
-  Selection
+  DetailsListLayoutMode
 } from 'office-ui-fabric-react';
 import Card from 'antd/lib/card';
 import Button from 'antd/lib/button';
