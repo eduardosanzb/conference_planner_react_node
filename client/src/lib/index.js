@@ -1,2 +1,2 @@
 export const showCMS = user =>
-  user.permissions.some(p => p.name === 'ADMIN' || p.name === 'ORGANIZER');
+  user.permissions.some(({ name }) => name === 'ADMIN' || name === 'ORGANIZER');

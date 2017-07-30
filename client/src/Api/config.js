@@ -1,3 +1,4 @@
-export default  {
-	url: ''
-}
+export default {
+  url: ''
+};
+

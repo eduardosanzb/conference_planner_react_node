@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { loadUserFromToken } from './actions';
@@ -34,5 +35,9 @@ class App extends React.PureComponent {
     );
   }
 }
+
+App.propTypes = {
+  loadUserFromToken: PropTypes.func
+};
 
 export default connect(null, { loadUserFromToken })(App);

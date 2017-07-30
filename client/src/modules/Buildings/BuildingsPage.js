@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import Layout from 'antd/lib/layout';
@@ -88,4 +89,11 @@ function mapStateToProps ({ buildings, loginData }) {
   };
 }
 
+BuildingsList.propTypes = {
+  buildings: PropTypes.array,
+  loginData: PropTypes.object,
+  fetchBuildings: PropTypes.func
+};
+
 export default connect(mapStateToProps, { fetchBuildings })(BuildingsList);
+

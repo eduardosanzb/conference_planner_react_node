@@ -199,7 +199,12 @@ function mapStateToProps (state) {
 }
 
 EventPage.propTypes = {
-  event: PropTypes.object
+  event: PropTypes.object,
+  fetchEvent: PropTypes.func,
+  match: PropTypes.object,
+  user: PropTypes.object,
+  loggedIn: PropTypes.bool
 };
 
 export default connect(mapStateToProps, { fetchEvent })(EventPage);
+

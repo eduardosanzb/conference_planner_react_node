@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Layout from 'antd/lib/layout';
 import {
@@ -71,5 +72,9 @@ function mapStateToProps ({ users, loginData }) {
     users: users.users
   };
 }
-
+UsersList.propTypes = {
+  users: PropTypes.array,
+  fetchUsers: PropTypes.func,
+  loginData: PropTypes.object
+};
 export default connect(mapStateToProps, { fetchUsers })(UsersList);

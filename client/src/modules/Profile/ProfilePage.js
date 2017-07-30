@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Card from 'antd/lib/card';
 import Badge from 'antd/lib/badge';
 import Icon from 'antd/lib/icon';
@@ -20,8 +21,14 @@ const profileImg = {
   borderRadius: '90px'
 };
 
-export default class Profile extends React.PureComponent {
+class Profile extends React.PureComponent {
+  /**
+   * Returns JSX with a counter in a badge
+   * @params {String} title - Title of the JSX
+   * @params {Number} count - Number to display in the badge
+   */
   eventsCount (title, count) {
+    // TODO: Change arguments to a configuration object
     return (
       <div>
         <div className="ms-Grid-row">
@@ -136,3 +143,12 @@ export default class Profile extends React.PureComponent {
     );
   }
 }
+
+function mapStateToProps ({ loginData }) {
+  return {
+    loginData
+  };
+}
+
+export default connect(mapStateToProps, {})(Profile);
+
