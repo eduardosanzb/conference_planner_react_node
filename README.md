@@ -1,5 +1,5 @@
-# conference_planner_thesis
-Conferences planner for institutions
+# conference_planner_react_noe
+Conferences planner for institutions.
 
 # Run the project
 You must have **yarn**:
